@@ -1,0 +1,282 @@
+@import './themes';
+
+@media only screen and (max-width: 1250px) {
+  .Header > .Navbar {
+    display: none !important;
+  }
+
+  .MenuBtn {
+    display: inline-block !important;
+  }
+
+  .Menu {
+    display: block !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .Header {
+    padding: $mobile-hr-padding !important;
+
+    .Navbar {
+      .Link {
+        font: $x-small-font !important;
+      }
+  
+      .Label {
+        font: $x-small-font !important;
+      }
+    }
+  }
+}
+
+.Header {
+  @include themify() {
+    @include smooth();
+    align-items: center;
+    background: t($header);
+    border-bottom: 1px solid t($header);
+    box-shadow: 0 4px 2px -2px t($shadow);
+    display: flex;
+    height: $header-height;
+    padding: $header-padding;
+    position: fixed;
+    user-select: none;
+    width: $default-width;
+    z-index: 2;
+  }
+
+  .Title {
+    @include themify() {
+      @include smooth();
+      color: t($text);
+      cursor: pointer;
+      font: $small-title-font;
+
+      &:hover {
+        transform: translateY(-5%);
+      }
+    }
+  }
+
+  .Icon {
+    @include themify() {
+      @include smooth();
+      appearance: none;
+      background: none;
+      border: 0;
+      border-radius: 50%;
+      color: t($primary);
+      cursor: pointer;
+      font-size: $x-small-icon;
+      padding: .4rem .4rem .1rem .4rem;
+
+      &:hover {
+        background: t($btnHover);
+        color: t($secondary);
+      }
+  
+      &:active {
+        background: t($btnActive);
+      }
+    }
+  }
+
+  & > .Navbar {
+    align-items: inherit;
+    display: inherit;
+    height: 100%;
+    margin-left: auto;
+
+    .Selected {
+      @include themify() {
+        border-bottom: 2px solid t($primary);
+        color: t($primary);
+        transform: translateY(1px);
+
+        &:hover {
+          background: t($btnHover);
+          color: t($secondary);
+        }
+      }
+    }
+  
+    .Link {
+      @include themify() {
+        align-items: center;
+        color: t($textAlt);
+        display: flex;
+        font: $small-font;
+        height: 100%;
+        padding: $link-gap;
+        text-decoration: none;
+
+        &:hover {
+          background: t($btnHover);
+          color: t($text);
+        }
+      }
+    }
+  
+    .Button {
+      @include themify() {
+        @include smooth();
+        background: t($primary);
+        border: 0;
+        border-radius: $btn-radius;
+        color: t($btnText);
+        cursor: pointer;
+        display: inline-block;
+        font: $bold-small-font;
+        height: 2.5em;
+        margin-left: 1.25rem;
+        outline: $btn-outline solid t($primary);
+        padding: $btn-padding;
+        text-decoration: none;
+
+        &:hover {
+          background: transparent;
+          color: t($primary);
+        }
+      }
+    }
+
+    .ThemeBtn {
+      margin: $theme-gap;
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+
+  .MenuBtn {
+    display: none;
+    margin-left: auto;
+  }
+
+  .Menu {
+    @include themify() {
+      @include smooth();
+      animation: .7s slideDown forwards;
+      background: t($header);
+      border: 0;
+      border-radius: .4rem;
+      box-shadow: 0 0 6px -2px t($shadow);
+      display: none;
+      top: $header-height;
+      position: absolute;
+      right: 0;
+      width: 100%;
+    }
+
+    .Navbar {
+      align-items: center;
+      display: flex;
+      flex-flow: column nowrap;
+      height: 100%;
+      justify-content: space-around;
+      padding: 1rem 0;
+      width: 100%;
+
+      .Link, .Divider, .Switch--Container {
+        margin: 1rem 0;
+      }
+
+      .Link {
+        @include themify() {
+          align-items: center;
+          color: t($textAlt);
+          display: flex;
+          font: $small-font;
+          justify-content: center;
+          text-decoration: none;
+        }
+      }
+
+      .Divider {
+        @include themify() {
+          background: t($border);
+          display: block;
+          height: 1px;
+          width: 2rem;
+        }
+      }
+  
+      .Switch--Container {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        .Label {
+          @include themify() {
+            color: t($textAlt);
+            display: block;
+            font: $small-font;
+            margin-right: 1rem;
+          }
+        }
+  
+        .Switch {
+          display: inline-block;
+          height: 1.5em;
+          position: relative;
+          width: 2.75em;
+    
+          .Slider {
+            @include themify() {
+              -webkit-transition: .4s;
+              background: t($switch);
+              border-radius: 5em;
+              bottom: 0;
+              cursor: pointer;
+              left: 0;
+              position: absolute;
+              right: 0;
+              top: 0;
+              transition: .4s;
+            }
+
+            &:before {
+              @include themify() {
+                @include smooth();
+                background: $white;
+                border-radius: 50%;
+                box-shadow: 0 0 6px t($shadow);
+                content: "";
+                height: 1.5em;
+                position: absolute;
+                width: 1.5em;
+              }
+            }
+          }
+    
+          .Checkbox {
+            height: 0;
+            opacity: 0;
+            width: 0;
+          }
+    
+          .Checkbox:checked + .Slider:before {
+            -webkit-transform: translateX(1.3em);
+            -ms-transform: translateX(1.3em);
+            transform: translateX(1.3em);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-50%);
+    opacity: .5;
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
