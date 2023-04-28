@@ -1,0 +1,138 @@
+@import './themes';
+
+@media only screen and (max-width: 1000px) {
+  .Services {
+    .Heading {
+      font: $small-heading-font !important;
+    }
+
+    .Service .Content {
+      height: $small-card-height !important;
+      width: $small-card-width !important;
+
+      .Title {
+        font: $title-font !important;
+      }
+
+      .Icon {
+        font-size: $medium-icon !important;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600) {
+  .Services {
+    padding: $mobile-hr-padding !important;
+
+    .Heading {
+      font: $x-small-heading-font !important;
+    }
+  }
+}
+
+.Services {
+  @include themify() {
+    @include smooth();
+    background-color: t($body);
+    min-height: $section-height;
+    padding: $section-padding;
+    width: $default-width;
+  }
+
+  .Heading {
+    @include themify() {
+      color: t($text);
+      font: $medium-heading-font;
+      padding: $section-padding;
+      text-align: center;
+    }
+  }
+
+  .Services--Container {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+
+    .Service {
+      @include themify() {
+        @include smooth();
+        background: t($bodyAlt);
+        border: 0;
+        border-radius: 1em;
+        box-shadow: 0 0 6px -2px t($shadow);
+        position: relative;
+      }
+
+      .Decoration {
+        @include themify() {
+          background: t($borderSpecial);
+          display: block;
+          height: .25rem;
+          position: absolute;
+          top: 1.25rem;
+          width: 100%;
+        }
+      }
+
+      .Content {
+        @include smooth();
+        align-items: flex-start;
+        display: flex;
+        flex-flow: column nowrap;
+        height: $card-height;
+        justify-content: space-around;
+        padding: 1.5rem;
+        padding-top: 5.5rem;
+        width: $card-width;
+
+        .Icon {
+          @include themify() {
+            color: t($primary);
+            font-size: $big-icon;
+          }
+        }
+  
+        .Title {
+          @include themify() {
+            color: t($text);
+            font: $medium-title-font;
+          }
+        }
+
+        .Description {
+          @include themify() {
+            color: t($textAlt);
+            font: $small-font;
+          }
+        }
+  
+        .Link {
+          @include themify() {
+            color: t($primary);
+            cursor: pointer;
+            font: $bold-small-font;
+            text-decoration: none;
+  
+            &:hover {
+              color: t($secondary);
+  
+              .Arrow {
+                transform: translateY(15%);
+                transition: .2s;
+              }
+            }
+          }
+
+          .Arrow {
+            font-size: $xx-small-icon;
+            margin-right: 1em;
+          }
+        }
+      }
+    }
+  }
+}

@@ -42,7 +42,7 @@
     padding: $header-padding;
     position: fixed;
     user-select: none;
-    width: $default-width;
+    width: 100%;
     z-index: 2;
   }
 
@@ -87,6 +87,7 @@
     display: inherit;
     height: 100%;
     margin-left: auto;
+    margin-right: 5rem;
 
     .Selected {
       @include themify() {
@@ -151,8 +152,7 @@
   }
 
   .MenuBtn {
-    display: none;
-    margin-left: auto;
+    margin-left: 5rem;
   }
 
   .Menu {

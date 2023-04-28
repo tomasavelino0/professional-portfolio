@@ -84,6 +84,7 @@
   .Dropdown--Container {
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
     gap: 1.75rem;
     margin: auto;
     padding: 0 15rem;
