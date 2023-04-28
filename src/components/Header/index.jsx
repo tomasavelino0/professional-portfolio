@@ -3,6 +3,7 @@ import '../../styles/_header.scss'
 
 import Navbar from './Navbar'
 import Menu from './Menu'
+import Socials from '../Socials'
 
 import {
   FiMenu as MenuIcon,
@@ -19,6 +20,8 @@ const Header = () => {
   return (
     <header className="Header">
       <h1 className="Title">Tomas</h1>
+      <Socials />
+    
       <Navbar toggleMenu={toggleMenu}/>
 
       <button
