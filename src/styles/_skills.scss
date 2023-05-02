@@ -179,7 +179,7 @@
 
       .DropdownList {
         @include themify() {
-          animation: .7s slideDown forwards;
+          animation: .9s slideDown forwards;
           background: none;
           scrollbar-color: t($scrollThumb) t($scrollTrack);
           scrollbar-width: auto;

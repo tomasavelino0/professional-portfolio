@@ -1,9 +1,17 @@
-import { Header, About, Skills, Services, Contact, Footer, Projects } from "./components"
+import { 
+  Header,
+  About, 
+  Skills, 
+  Services, 
+  Contact, 
+  Footer, 
+  Projects, 
+  ScrollBtn } from "./components";
 
 function App() {
 
   return (
-    <main style={{width: '100vw'}} id="theme-root" className="theme--default">
+    <main id="theme-root" className="theme--default">
       <Header />
       <About />
       <Skills />
@@ -11,6 +19,7 @@ function App() {
       <Contact />
       <Projects />
       <Footer />
+      <ScrollBtn />
     </main>
   )
 }
