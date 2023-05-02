@@ -1,0 +1,257 @@
+@import './themes';
+
+@media only screen and (max-width: 1215px) {
+  .Visible {
+    display: none !important;
+  }
+
+  .Center {
+    display: flex !important;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    transition: 1s;
+  }
+
+  .RepoName {
+    font: $big-title-font !important;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .Portfolio {
+    .Heading {
+      font: $small-heading-font !important;
+    }
+
+    .Card {
+      height: $small-card-height !important;
+      width: $small-card-width !important;
+    }
+
+    .Button .Icon {
+      font-size: $x-large-icon !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .Portfolio {
+    .Heading {
+      font: $x-small-heading-font !important;
+    }
+
+    .Slide {
+      .Button .Icon {
+        font-size: $big-icon !important;
+      }
+    }
+  }
+}
+
+.Portfolio {
+  @include themify() {
+    @include smooth();
+    background-color: t($body);
+    min-height: $section-height;
+    padding: 2.6rem 0;
+    width: $default-width;
+  }
+
+  .Heading {
+    @include themify() {
+      color: t($text);
+      font: $medium-heading-font;
+      padding: 2.6rem 0;
+      text-align: center;
+    }
+  }
+
+  .Slide {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+
+    .Cards--Container {
+      display: flex;
+      flex-basis: auto;
+
+      .Card {
+        @include themify() {
+          @include smooth();
+          background: t($bodyAlt);
+          box-shadow: 0 0 6px -2px t($shadow);
+        }
+
+        .Icon {
+          @include themify() {
+            color: t($primary);
+
+            &:hover {
+              color: t($secondary);
+              @include smooth();
+            }
+          }
+  
+          position: absolute;
+          top: 2rem;
+          right: .9rem;
+          font-size: $big-icon;
+        }
+
+        position: relative;
+        display: none;
+        opacity: 0.7;
+        padding: 1.5rem;
+        height: $card-height;
+        width: $card-width;
+        border: 0;
+        border-radius: 1rem;
+        transform: scale(0.9);
+        user-select: none;
+      }
+
+      .Visible {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        transition: 1s;
+      }
+
+      .Center {
+        opacity: 1;
+        transform: scale(1);
+        user-select: text;
+      }
+
+      .RepoName {
+        @include themify() {
+          color: t($text);
+        }
+
+        font: $big-title-font;
+      }
+
+      .RepoDescription::-webkit-scrollbar-thumb {
+        @include themify() {
+          background: t($scrollThumb);
+        }
+      }
+
+      .RepoDescription::-webkit-scrollbar {
+        @include themify() {
+          width: 6px;
+          height: 9px;
+          background: t($scrollTrack);
+        }
+      }
+
+      .RepoDescription {
+        @include themify() {
+          color: t($textAlt);
+          scrollbar-color: t($scrollThumb) t($scrollTrack);
+          scrollbar-width: auto;
+        }
+
+        font: $small-font;
+        margin: .5rem 0 1rem;
+        max-height: 4.75rem;
+        overflow-y: auto;
+      }
+
+      .Topics--Container {
+        display: flex;
+        flex-flow: row wrap;
+        gap: .5em;
+        margin: .5rem 0;
+
+        .Topic {
+          @include themify() {
+            @include smooth();
+            background: t($bubble);
+            color: t($text);
+            box-shadow: 0 0 6px -2px t($shadow);
+          }
+  
+          display: inline-block;
+          padding: .2rem .9rem;
+          border: 0;
+          border-radius: 1em;
+          font: $x-small-font;
+        }
+
+        .Language {
+          @include themify() {
+            background: t($primary);
+            color: t($body);
+          }
+        }
+      }
+
+      .RepoBtn {
+        @include themify() {
+          @include smooth();
+          background-color: t($primary);
+          color: t($btnText);
+          outline: $btn-outline solid t($primary);
+        }
+
+        display: inline-block;
+        height: 2.5em;
+        padding: $btn-padding;
+        margin-top: auto;
+        background: none;
+        border-radius: $btn-radius;
+        text-align: center;
+        text-decoration: none;
+        pointer-events: none;
+        cursor: none;
+        font: $bold-small-font;
+      }
+
+      .Center .RepoBtn {
+        pointer-events: all;
+        user-select: none;
+        cursor: pointer;
+
+        &:hover {
+          @include themify() {
+            color: t($primary);
+            background: transparent;
+          }
+        }
+      }
+    }
+
+    .Button {
+      @include themify() {
+        @include smooth();
+        appearance: none;
+        background: none;
+        border: 0;
+        border-radius: 50%;
+        cursor: pointer;
+        height: 4rem;
+        width: 4rem;
+
+        &:hover {
+          background: t($btnHover);
+        }
+
+        &:active {
+          background: t($btnActive);
+
+          .Icon {
+            color: t($secondary);
+          }
+        }
+      }
+
+      .Icon {
+        @include themify() {
+          color: t($primary);
+          font-size: $xx-large-icon;
+        }
+      }
+    }
+  }
+}
