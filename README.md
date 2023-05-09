@@ -6,7 +6,7 @@ Welcome to the _GitHub repository_ of my **professional portfolio**! Here you ca
 
 <div align="center">
 
-![portfolio](https://github.com/tomasavelino0/professional_portfolio/assets/104459944/454de724-eb7c-4581-8372-5fab03f3c329)
+![portfolio](https://github.com/tomasavelino0/professional_portfolio/assets/104459944/d6d41067-33dd-461a-877e-41800e8d7301)
 
 </div>
 
